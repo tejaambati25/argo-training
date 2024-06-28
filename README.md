@@ -31,6 +31,6 @@ ConfigMap/game-demo is part of applications argocd/application and argocdin
   Solutions: Remove  one of the Applications.
 
 *****************************************************************************************************************************************
-SharedResourceWarning
-ConfigMap/game-demo is part of applications argocd/application and argocdin
-2 minutes ago (Fri Jun 28 2024 17:17:40 GMT+0530)
+**Definition**
+1) Prune
+   when file is deleted in GitHub and corresponding resource still exists in k8s  
