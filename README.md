@@ -23,5 +23,14 @@ There is no space between : (colon) and value
 Wrong    key:value1
 Right:   key: value1
 
+2)
+ SharedResourceError
+ConfigMap/game-demo is part of applications argocd/application and argocdin
+2 minutes ago (Fri Jun 28 2024 17:17:40 GMT+0530)
+  dont deploy any kubernetes resouce to the  same cluster and same namespace using two different Applications.
+  Solutions: Remove  one of the Applications.
 
 *****************************************************************************************************************************************
+SharedResourceWarning
+ConfigMap/game-demo is part of applications argocd/application and argocdin
+2 minutes ago (Fri Jun 28 2024 17:17:40 GMT+0530)
