@@ -1,0 +1,110 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-complex-app
+  namespace: argocd
+spec:
+  project: default
+
+  # Source configuration
+  source:
+    repoURL: 'https://github.com/your-repo/your-app'
+    targetRevision: main
+    path: 'path/to/your/manifests'
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-production.yaml
+      parameters:
+        - name: image.tag
+          value: "v1.0.0"
+
+  # Destination configuration
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: my-app-namespace
+
+  # Sync Policy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+
+  # Custom health check
+  healthChecks:
+    - group: apps
+      kind: Deployment
+      name: my-deployment
+      namespace: my-app-namespace
+      healthCheck:
+        script: |
+          if [ "$(kubectl get deployment my-deployment -o jsonpath='{.status.readyReplicas}')" == "1" ]; then
+            exit 0
+          else
+            exit 1
+          fi
+
+  # Resource hook
+  hooks:
+    - group: batch
+      kind: Job
+      name: my-job
+      preSync: true
+      sync: true
+
+  # Additional resources
+  resources:
+    - group: apps
+      kind: Deployment
+      name: my-additional-deployment
+      namespace: my-app-namespace
+    - group: batch
+      kind: Job
+      name: my-additional-job
+      namespace: my-app-namespace
+
+  # Parameter overrides
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+
+  # Manual sync configuration
+  manualSync:
+    enabled: true
+    prune: false
+    strategy:
+      type: rolling
+      maxSurge: 1
+      maxUnavailable: 0
+
+  # Notifications
+  notifications:
+    enabled: true
+    config:
+      service: slack
+      channel: '#deployments'
+      token: 'your-slack-token'
+      template: |
+        Application {{.app.metadata.name}} has been {{.operation}}.
+        - Status: {{.app.status.sync.status}}
+        - Health: {{.app.status.health.status}}
+        - URL: {{.app.status.summary.repoURL}}
+
+  # Additional configurations
+  retry:
+    limit: 5
+    backoff:
+      duration: 5s
+      factor: 2
+      maxDuration: 3m
+
+  info:
+    - name: team
+      value: 'devops'
+    - name: owner
+      value: 'team@example.com'
