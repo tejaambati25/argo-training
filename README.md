@@ -13,6 +13,10 @@ sync - The application details what is there in the cluster are equal to Github
 **all possible fields of an application yaml**
 https://argo-cd.readthedocs.io/en/latest/user-guide/application-specification/
 
+
+**example repo for practice**
+https://github.com/argoproj/argocd-example-apps
+
 *****************************************************************************************************************************************
 ** **ERRORS**
 1)
