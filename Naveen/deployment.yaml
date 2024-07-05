@@ -14,7 +14,7 @@ spec:
         app: Deployment-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: gcr.io/heptio-images/ks-Deployment-ui-demo:0.2
         name: Deployment-ui
         ports:
         - containerPort: 80
