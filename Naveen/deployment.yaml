@@ -1,0 +1,22 @@
+apiversion: v1
+kind: Deployment
+metadata:
+  name: blueprint-ui
+spec: 
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector: 
+    matchLabels:
+      app: blueprint-ui
+  template: 
+    metadata:
+      labels:
+        app: blueprint-ui
+    spec: 
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: blueprint-ui
+        ports: 
+        - containerPort: 80
+        
+  
