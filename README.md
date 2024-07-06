@@ -34,11 +34,11 @@ ConfigMap/game-demo is part of applications argocd/application and argocdin
   dont deploy any kubernetes resouce to the  same cluster and same namespace using two different Applications.
   Solutions: Remove  one of the Applications.
 
-3)  Unable to create application: application spec for APPNAME is invalid: InvalidSpecError: Unable to generate manifests in mbe-mainchart/dev: rpc error: code = Unknown desc = `helm template . --name-template APPNAME --namespace default --kube-version 1.26 <api versions removed> --include-crds` failed exit status 1: Error: release name "APPNAME": invalid release name, must match regex ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and the length must not be longer than 53
+3)  Unable to create application: application spec for APPNAME is invalid: InvalidSpecError: Unable to generate manifests in mbe-mainchart/dev: rpc error: code = Unknown desc = `helm template . --name-template APPNAME --namespace default --kube-version 1.26 <api versions removed> --include-crds` failed exit status 1: Error: release name "APPNAME": invalid release name, must match regex ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and the length must not be longer than 53  
    solution: give application name in all lowercase alphabet and numbers, can have a hyphen- in-between do not use any other characters
 
-4) Unable to create application: existing application spec is different, use upsert flag to force update
-   Do not create application with the same name as an existing one.
+4) Unable to create application: existing application spec is different, use upsert flag to force update  
+   solution: Do not create application with the same name as an existing one.
 
 *****************************************************************************************************************************************
 **Definition**
