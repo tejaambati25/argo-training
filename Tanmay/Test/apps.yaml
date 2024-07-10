@@ -1,1 +1,3 @@
-
+application: v1
+kind: deployment
+replicas: 3
