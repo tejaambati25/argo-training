@@ -1,4 +1,4 @@
-apiversion: app/v1
+apiversion: apps/v1
 kind: deployment
 metadata: 
   name: Interface-ui
