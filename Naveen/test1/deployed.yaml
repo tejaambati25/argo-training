@@ -7,5 +7,9 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels: 
-      app: Interface-ui
+      app: Interface-ui 
+  template:
+    metadata: 
+      labels:
+        app: Interface-ui
    
