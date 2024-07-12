@@ -12,4 +12,12 @@ spec:
     metadata: 
       labels:
         app: Interface-ui
+
+    spec: 
+      container: 
+      - image:  gcr.io/heptio-images/ks-Interface-ui-demo:0.2
+        name: Interface-ui
+        ports: 
+        - containerPort: 80
+      
    
