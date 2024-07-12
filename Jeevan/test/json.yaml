@@ -1,0 +1,13 @@
+{
+  "name": "Jeevan",
+  "age": 22,
+  "city": "hyderabad",
+  "email": "jeevanputla20@gmail.com",
+  "is_student": false,
+  "grades": [85, 90, 88, 92],
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "zip": "12345"
+  }
+}
