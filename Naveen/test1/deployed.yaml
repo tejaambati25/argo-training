@@ -1,22 +1,22 @@
 apiversion: apps/v1
 kind: Deployment
 metadata: 
-  name: Interface-ui
+  name: guestbook-ui
 spec: 
   replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels: 
-      app: Interface-ui 
+      app: guestbook-ui 
   template:
     metadata: 
       labels:
-        app: Interface-ui
+        app: guestbook-ui
 
     spec: 
       container: 
       - image:  gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: Interface-ui
+        name: guestbook-ui
         ports: 
         - containerPort: 80
       
