@@ -1,0 +1,11 @@
+apiversion: v1
+kind: deployment
+metadata: 
+  name: Interface-ui
+spec: 
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels: 
+      app: Interface-ui
+   
