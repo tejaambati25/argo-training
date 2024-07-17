@@ -6,11 +6,11 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/AmrAlaaYassen/ArgoCD-ApplicationSet-Demo.git
+        repoURL: https://github.com/OpsMx/argo-training
         revision: HEAD
         directories:
           # here it will read the paths under configs and the subpaths under the config paths
-          - path: demo/configs/*/*
+          - path: Tanmay/Applicationset
   template:
     metadata:
       namespace: argocd
@@ -25,7 +25,7 @@ spec:
             - "configs/{{path[2]}}/{{path.basename}}/values.yaml"
             - "configs/{{path[2]}}/values.yaml"
         path: demo
-        repoURL: https://github.com/AmrAlaaYassen/ArgoCD-ApplicationSet-Demo.git
+        repoURL: https://github.com/OpsMx/argo-training
         targetRevision: HEAD
       syncPolicy:
         automated:
