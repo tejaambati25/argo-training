@@ -4,7 +4,7 @@ metadata:
   name: nginx-pod
   replicas: 3
   labels:
-    app: nginx
+    app: nginx-pod
 spec:
   containers:
   - name: nginx
