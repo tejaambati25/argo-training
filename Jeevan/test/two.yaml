@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multi-repo-app
+  namespace: default
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    repos:
+      - repoURL: https://github.com/bitthalpatidar  # URL of the first Git repository
+        targetRevision: main
+        path: apps/git-source    # Path within the repository containing manifests
+      - repoURL: https://github.com/OpsMx/argo-training  # URL of the second Git repository
+        targetRevision: main
+        path: Jeevan/test   # Path within the repository containing manifests
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
