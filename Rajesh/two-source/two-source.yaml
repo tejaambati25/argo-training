@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
     namespace: my-task
   sources:
-    - repoURL: https://github.com/OpsMx/argo-training/tree/main/Rajesh.git
-      path: data/two-source/source-one
+    - repoURL: https://github.com/OpsMx/argo-training.git
+      path: Rajesh/data/firstsource
       targetRevision: HEAD
     - repoURL: https://github.com/OpsMx/argo-training/tree/main/Rajesh.git
-      path: data/two-source/source-two
+      path: Rajesh/data/secondsource
       targetRevision: HEAD
