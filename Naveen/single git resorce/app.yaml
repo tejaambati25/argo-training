@@ -10,6 +10,6 @@ destination:
 source: 
   path: Naveen/single-git-source
   repourl: https://github.com/OpsMx/argo-training
-  targetRevision: HEAD
+  
 project: default
 
