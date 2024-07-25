@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Application
+metadata: 
+  name: single-git-source
+  namespace: argocd
+spec:
+destination: 
+  namespace: single-git-source
+  server: https://kubernetes.default.svc
+source: 
+  path: https://github.com/OpsMx/argo-training
+  repourl: 
+  targetRevision: HEAD
+project: default
+
