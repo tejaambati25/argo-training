@@ -1,4 +1,4 @@
-apiVersion: appprojects.argoproj.io
+apiVersion: v1
 kind: app
 metadata: 
   name: single-git-source
