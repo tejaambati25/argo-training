@@ -8,8 +8,8 @@ destination:
   namespace: single-git-source
   server: https://kubernetes.default.svc
 source: 
-  path: https://github.com/OpsMx/argo-training
-  repourl: 
+  path: Naveen/single-git-source
+  repourl: https://github.com/OpsMx/argo-training
   targetRevision: HEAD
 project: default
 
