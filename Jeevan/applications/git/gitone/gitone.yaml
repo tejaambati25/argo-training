@@ -8,7 +8,7 @@ spec:
     namespace: argocd-j
     server: 'https://kubernetes.default.svc'
   source:
-    path: Jeevan/values/v-git
+    path: Jeevan/values/v-git/v-gitone
     repoURL: 'https://github.com/OpsMx/argo-training.git'
     targetRevision: HEAD
   project: default
