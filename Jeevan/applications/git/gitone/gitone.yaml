@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd-j
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
     path: Jeevan/values/v-git/v-gitone
