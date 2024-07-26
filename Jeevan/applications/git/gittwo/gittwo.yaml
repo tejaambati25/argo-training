@@ -10,8 +10,8 @@ spec:
     namespace: argocd-j
   sources:
     - repoURL: https://github.com/OpsMx/argo-training.git
-      path: Jeevan/values/v-git/v-gittwo/v-g1.yaml
+      path: Jeevan/values/v-git/v-gittwo
       targetRevision: HEAD
     - repoURL: https://github.com/OpsMx/argo-training.git
-      path: Jeevan/values/v-git/v-gittwo/v-g2.yaml
+      path: Jeevan/values/v-git/v-gittwo
       targetRevision: HEAD
