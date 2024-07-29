@@ -7,11 +7,11 @@ spec:
   project: default
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    namespace: argocd-j
   sources:
     - repoURL: 'https://github.com/bitthalpatidar/test-argo.git'
       path: datas/git/single-git-source
       targetRevision: HEAD
     - repoURL: 'https://github.com/OpsMx/argo-training.git'
-      path: Jeevan/values/v-git/v-gitone
+      path: Jeevan/values/v-git/v-gittwodiff
       targetRevision: HEAD
