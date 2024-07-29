@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: git-twodiffsource
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  sources:
+    - repoURL: 'https://github.com/bitthalpatidar/test-argo.git'
+      path: datas/git/single-git-source
+      targetRevision: HEAD
+    - repoURL: 'https://github.com/OpsMx/argo-training.git'
+      path: Jeevan/values/v-git/v-gitone
+      targetRevision: HEAD

@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-two
+spec:
+  generators:
+    - list:
+        elements:
+          - name: app-1
+            namespace: argocd-j
+          - name: app-2
+            namespace: argocd-j
+  template:
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/OpsMx/argo-training/edit/main/Jeevan/applications/applicationset/settwo.yaml
+        targetRevision: HEAD
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd-j
+
