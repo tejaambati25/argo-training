@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: app
 metadata: 
-  name: single-git-source
+  name: git-source
 spec:
   destination: 
     namespace: single-git-source
