@@ -15,7 +15,7 @@ spec:
         valueFiles:
           - values.yaml
     - repoURL: 'https://github.com/OpsMx/argo-training.git'
-      path: Jeevan/values/v-helm/v-helmone
+      path: Jeevan/values/v-helm/v-helmtwo/v-helmtwodiff
       targetRevision: HEAD
       helm:
         valueFiles:
