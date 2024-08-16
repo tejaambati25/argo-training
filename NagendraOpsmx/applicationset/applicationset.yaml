@@ -18,9 +18,9 @@ spec:
       # applications will be in default project for argocd
       project: default
       source:
-        repoURL: https://github.com/OpsMx/argo-training/tree/main/NagendraOpsmx.git
+        repoURL: https://github.com/OpsMx/argo-training.git
         targetRevision: HEAD
-        path: list-generator-example/deployment
+        path: NagendraOpsmx/applicationset/deployment
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
