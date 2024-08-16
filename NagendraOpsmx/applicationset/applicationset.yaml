@@ -1,36 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: demo-helm-common-chart
+  name: color-applicaitonset
   namespace: argocd
 spec:
   generators:
-    - git:
-        repoURL: https://github.com/OpsMx/argo-training.git
-        revision: HEAD
-        directories:
-          # here it will read the paths under configs and the subpaths under the config paths
-          - path: demo/configs/*/*
+  - list:
+      elements:
+      - namespace: dev
+      - namespace: test
+      - namespace: uat
   template:
     metadata:
-      namespace: argocd
-      # you can use the path strings with / delimiter as variables
-      name: "{{path[2]}}-{{path.basename}}"
+      # will generate applications with different names for example (dev-color-app, test-color-app, etc..)
+      name: '{{namespace}}-color-app'
     spec:
+      # applications will be in default project for argocd
       project: default
       source:
-        helm:
-          # specify different values file based on directories variables
-          valueFiles:
-            - "configs/{{path[2]}}/{{path.basename}}/values.yaml"
-            - "configs/{{path[2]}}/values.yaml"
-        path: demo
-        repoURL: https://github.com/OpsMx/argo-training.git
+        repoURL: https://github.com/OpsMx/argo-training/tree/main/NagendraOpsmx.git
         targetRevision: HEAD
-      syncPolicy:
-        automated:
-          prune: true
+        path: list-generator-example/deployment
       destination:
-        # specify different destinations
-        namespace: "{{path.basename}}"
+        # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
+        # will deploy to different namespaces as different destinations 
+        namespace: '{{namespace}}'
